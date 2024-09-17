@@ -1,0 +1,23 @@
+<div class="header">
+  <h1 class="Clients">Detalle de Cliente</h1>
+  <a href="#" routerLink="/ViewAllClient" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> Atras</a>
+</div>
+<div class="container-xl">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ clientDetail.firstName }} {{ clientDetail.lastName }}</h5>
+        <p class="card-text"><strong>DNI:</strong> {{ clientDetail.dni }}</p>
+        <p class="card-text"><strong>Direccion:</strong> {{ clientDetail.address }}</p>
+        <p class="card-text"><strong>Telefono:</strong> {{ clientDetail.phone }}</p>
+        <p class="card-text"><strong>Email:</strong> {{ clientDetail.email }} </p>
+        <div class="button-group">
+          <a [routerLink]="['/EditClient/', clientDetail.id]" class="btn btn-primary"><i class='fas fa-edit'></i> Editar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!clientDetail" class="no-clients">
+    <p>No se han encontrado clientes</p>
+  </div>
+</div>

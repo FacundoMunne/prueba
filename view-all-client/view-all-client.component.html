@@ -1,0 +1,23 @@
+<div class="header">
+  <h1 class="Clients">Clientes</h1>
+  <p>Lista de todos los Clientes</p>
+</div>
+<div class="actions">
+  <a href="#" [routerLink]="['/AddClient']" class="btn btn-primary"><i class='fas fa-plus'></i> Agregar Cliente</a>
+</div>
+<div class="container-xl">
+  <div class="card-container">
+    <div class="card" *ngFor="let client of clientList" (click)="viewClient(client.id)">
+      <h5 class="card-title">{{ client.firstName }} {{ client.lastName }}</h5>
+      <p class="card-text"><strong>DNI:</strong> {{ client.dni }}</p>
+      <p class="card-text"><strong>Direccion:</strong> {{ client.address }}</p>
+      <p class="card-text"><strong>Telefono:</strong> {{ client.phone }}</p>
+      <p class="card-text"><strong>Email:</strong> {{ client.email }} </p>
+        <div class="actions">
+          <a href="#" [routerLink]="['/ViewClient/', client.id]" class="btn btn-primary"><i class='fas fa-eye'></i> Ver</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="clientList.length == 0" class="no-clients">No se han encontrado Clientes</div>
+  </div>
+
